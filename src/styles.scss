@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+@use "bootstrap/scss/functions";
+@use "assets/scss/bootstrap";
+@use "assets/fonts/feather/style.css";
+@use 'animate.css/animate.min.css';
+@use "assets/scss/darkMode";
+@use "@ng-select/ng-select/themes/default.theme.css";
+@use "assets/scss/variables" as *;
+@use "assets/scss/texts";
+@use "assets/scss/mediaQuery";
+@use "assets/scss/buttons";
+@use "assets/scss/breadcrumb";
+@use "assets/scss/ng-select";
+
+body {
+    margin: 0;
+    background: $body-color;
+        font-family: 'Manrope', 'Sora', 'Poppins', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+
+    ::-webkit-scrollbar {
+        width: 7px;
+        height: 7px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #acacac;
+        border-radius: 10px;
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+    }
+
+}

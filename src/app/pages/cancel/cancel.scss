@@ -1,0 +1,225 @@
+@use '../../../assets/scss/variables' as *;
+
+ .cancel-wrapper {
+  min-height: 100vh;
+  background: $content-bg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1.5rem;
+}
+
+/* ================= CARD ================= */
+
+.cancel-card {
+  width: 100%;
+  max-width: 760px;
+  background: $white;
+  border-radius: 20px;
+  border: 1px solid $border-color;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  padding: 3rem 2.5rem;
+  position: relative;
+}
+
+.cancel-top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6px;
+  width: 100%;
+  background: $danger;
+}
+
+/* ================= HEADER ================= */
+
+.cancel-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+
+  p {
+    color: $text-muted;
+    font-size: 15px;
+  }
+}
+
+.warning-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 1.2rem;
+  border-radius: 50%;
+  background: rgba($danger, 0.1);
+  color: $danger;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================= ALERT ================= */
+
+.cancel-alert {
+  display: flex;
+  gap: 16px;
+  padding: 1.5rem;
+  border-radius: 14px;
+  background: rgba($danger, 0.05);
+  border: 1px solid rgba($danger, 0.25);
+  margin-bottom: 2.5rem;
+}
+
+.alert-icon {
+  font-size: 20px;
+}
+
+.alert-content {
+
+  h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  p {
+    font-size: 14px;
+    color: $text-muted;
+    margin: 0;
+  }
+}
+
+/* ================= LOSE SECTION ================= */
+
+.lose-section {
+
+  h4 {
+    font-size: 12px;
+    font-weight: 700;
+    color: $text-muted;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 2.5rem;
+}
+
+.feature-item {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 0.8rem;
+  border-radius: 10px;
+  transition: $transition-fast;
+
+  &:hover {
+    background: $hover;
+  }
+
+  strong {
+    display: block;
+    font-size: 14px;
+  }
+
+  span {
+    font-size: 12px;
+    color: $text-muted;
+  }
+}
+
+.feature-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: $light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  color: $secondary;
+}
+
+/* ================= NOTE ================= */
+
+.cancel-note {
+  background: $light;
+  border: 1px dashed $border-color;
+  padding: 1.3rem;
+  border-radius: 14px;
+  text-align: center;
+  font-size: 13px;
+  color: $text-muted;
+  margin-bottom: 2.5rem;
+
+  strong {
+    color: $text-color;
+  }
+}
+
+/* ================= ACTIONS ================= */
+
+.cancel-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-stay {
+  background: transparent;
+  border: none;
+  color: $text-muted;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 12px 18px;
+  transition: $transition-fast;
+
+  &:hover {
+    color: $text-color;
+  }
+}
+
+.btn-confirm {
+  background: $danger;
+  color: $white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: $transition-fast;
+  box-shadow: 0 12px 25px rgba($danger, 0.25);
+
+  &:hover {
+    background: darken($danger, 6%);
+    transform: translateY(-2px);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cancel-actions {
+    flex-direction: column;
+  }
+
+  .btn-confirm,
+  .btn-stay {
+    width: 100%;
+  }
+}

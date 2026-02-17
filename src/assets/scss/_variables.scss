@@ -1,0 +1,92 @@
+/* =========================================================
+   BASE BRAND COLORS (TU MARCA)
+   ========================================================= */
+$appColor: #005C5B !default;
+
+$primary: $appColor !default;
+$main-color: $appColor !default;
+
+$white: #ffffff !default;
+$dark: rgb(38, 38, 38) !default;
+
+/* =========================================================
+   BACKGROUNDS
+   ========================================================= */
+$body-color: rgb(243, 245, 246) !default;
+$light: #fbfcfd !default;
+$hover: #f5f7fb !default;
+
+/* =========================================================
+   TEXT
+   ========================================================= */
+$text-color: $dark !default;
+$text-muted: #929DB2 !default;
+$secondary: rgb(136, 136, 136) !default;
+$link: rgb(40, 113, 161) !default;
+
+/* =========================================================
+   BORDERS
+   ========================================================= */
+$border-color: #d2d2d2 !default;
+
+/* =========================================================
+   STATUS COLORS
+   ========================================================= */
+$blue:    #0d6efd !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #d63384 !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #198754 !default;
+$teal:    #20c997 !default;
+$cyan:    #0dcaf0 !default;
+
+$success: $green !default;
+$info:    $cyan !default;
+$warning: $yellow !default;
+$danger:  $red !default;
+
+/* =========================================================
+   DARK THEME
+   ========================================================= */
+$theme-dark-main-color: #282929 !default;
+$theme-dark-secondary-color: #363737 !default;
+$theme-dark-bg: #141414 !default;
+$theme-dark-border: rgb(64, 64, 64) !default;
+
+/* =========================================================
+   TABLES (DARK)
+   ========================================================= */
+$table-light-bg: $theme-dark-secondary-color !default;
+$table-light-color: #e9ecef !default;
+$table-light-border: #2b3035 !default;
+$table-light-head-bg: #0f1114 !default;
+$table-light-head-color: #f8f9fa !default;
+
+/* =========================================================
+   LAYOUT (DASHBOARD)
+   ========================================================= */
+$sidebar-width: 260px !default;
+$sidebar-collapsed-width: 72px !default;
+$topbar-height: 64px !default;
+
+/* =========================================================
+   LAYOUT COLORS (DERIVADOS)
+   ========================================================= */
+$sidebar-bg: $white !default;
+$topbar-bg: $white !default;
+$content-bg: $body-color !default;
+
+$sidebar-text: $secondary !default;
+$sidebar-text-active: $primary !default;
+
+$border-light: $border-color !default;
+$border-dark: $theme-dark-border !default;
+
+/* =========================================================
+   TRANSITIONS
+   ========================================================= */
+$transition-fast: 0.2s ease !default;
+$transition-normal: 0.25s ease !default;

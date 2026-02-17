@@ -1,0 +1,340 @@
+@use '../../../assets/scss/variables' as *;
+.checkout-wrapper {
+  background: $content-bg;
+  padding: 3rem 2rem;
+  min-height: 100%;
+}
+
+.checkout-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 3rem;
+
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================= SUMMARY CARD ================= */
+
+.summary-card {
+  background: $white;
+  border: 1px solid $border-color;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.summary-header {
+  padding: 2rem;
+  border-bottom: 1px solid $border-color;
+  background: $light;
+
+  h2 {
+    margin: 0;
+    font-size: 20px;
+    color: $text-color;
+  }
+
+  p {
+    font-size: 13px;
+    color: $text-muted;
+  }
+}
+
+.summary-body {
+  padding: 2rem;
+}
+
+/* Account box */
+.account-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba($primary, 0.05);
+  border: 1px solid rgba($primary, 0.15);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+
+  button {
+    background: none;
+    border: none;
+    color: $primary;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+.account-info {
+  display: flex;
+  gap: 10px;
+
+  strong {
+    font-size: 14px;
+    display: block;
+  }
+
+  small {
+    font-size: 12px;
+    color: $text-muted;
+  }
+}
+
+/* Plan */
+.plan-box {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.plan-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, $dark, black);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  font-size: 26px;
+}
+
+.plan-details {
+  flex: 1;
+}
+
+.plan-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h3 {
+    margin: 0;
+  }
+
+  small {
+    color: $text-muted;
+  }
+
+  .plan-price {
+    font-weight: 700;
+  }
+}
+
+.badge-save {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 12px;
+  background: rgba($success, 0.15);
+  color: $success;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+/* Benefits */
+.benefits {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  border-top: 1px dashed $border-color;
+  padding-top: 1.5rem;
+
+  li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: $text-muted;
+  }
+}
+
+/* Totals */
+.totals {
+  border-top: 1px solid $border-color;
+  padding-top: 1.5rem;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 8px;
+
+    &.total {
+      font-weight: 700;
+      font-size: 18px;
+
+      span:last-child {
+        color: $primary;
+      }
+    }
+  }
+}
+
+/* ================= PAYMENT ================= */
+
+.payment-card {
+  background: $white;
+  border: 1px solid $border-color;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.payment-header {
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+
+  p {
+    color: $text-muted;
+    font-size: 14px;
+  }
+}
+
+/* Express */
+.express-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  button {
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+.apple-btn {
+  background: black;
+  color: $white;
+  border: none;
+}
+
+.google-btn {
+  background: $white;
+  border: 1px solid $border-color;
+}
+
+/* Divider */
+.divider {
+  text-align: center;
+  margin: 2rem 0;
+  position: relative;
+
+  span {
+    background: $white;
+    padding: 0 1rem;
+    color: $text-muted;
+    font-size: 13px;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: $border-color;
+    z-index: -1;
+  }
+}
+
+/* Form */
+.payment-form {
+  .form-group {
+    margin-bottom: 1.5rem;
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid $border-color;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: $transition-fast;
+
+      &:focus {
+        outline: none;
+        border-color: $primary;
+        box-shadow: 0 0 0 3px rgba($primary, 0.1);
+      }
+    }
+  }
+}
+
+.card-input {
+  margin-bottom: 10px;
+}
+
+.card-row {
+  display: flex;
+  gap: 1rem;
+
+  input {
+    flex: 1;
+  }
+}
+
+.checkbox {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 1.5rem;
+
+  label {
+    font-size: 13px;
+    color: $text-muted;
+  }
+}
+
+/* Pay Button */
+.pay-btn {
+  width: 100%;
+  background: $primary;
+  color: $white;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: $transition-fast;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.terms {
+  margin-top: 1rem;
+  font-size: 12px;
+  color: $text-muted;
+  text-align: center;
+
+  a {
+    color: $primary;
+    text-decoration: none;
+  }
+}
+
+.security-badges {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 12px;
+  color: $text-muted;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}

@@ -1,0 +1,38 @@
+@use "variables" as *;
+
+.btn-link{
+    padding: 0 0 2px 0 !important; 
+    font-size: 12px;
+}
+.btn{
+    font-size: 13px;
+    padding: 7px 25px !important;
+    border-radius: 5px;
+}
+.btn-filter{
+    border: 1px solid $border-color;
+    font-size: 13px;
+    height: fit-content;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    i{
+        font-size: 13px;
+    }
+    // display: flex;
+    // align-items: center; 
+}
+.btn-copy{
+    padding: 0px 5px !important;
+    border: none;
+    font-size: 13px;
+    height: fit-content; 
+    display: flex;
+    background-color: transparent !important;
+    align-items: center; 
+    i{
+        font-size: 13px;
+    } 
+}
+ 

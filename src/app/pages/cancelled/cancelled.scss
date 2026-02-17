@@ -1,0 +1,173 @@
+@use '../../../assets/scss/variables' as *;
+ 
+.cancel-success-wrapper {
+  min-height: 100vh;
+  background: $content-bg;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1.5rem;
+}
+
+.cancel-success-card {
+  width: 100%;
+  max-width: 600px;
+  background: $white;
+  border-radius: 20px;
+  border: 1px solid $border-color;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  text-align: center;
+}
+
+.top-accent {
+  height: 5px;
+  background: linear-gradient(
+    to right,
+    rgba($primary, 0.4),
+    $primary,
+    rgba($primary, 0.4)
+  );
+}
+
+.card-content {
+  padding: 3rem 2.5rem;
+}
+
+/* ================= ICON ================= */
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  background: rgba($primary, 0.1);
+  color: $primary;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================= TEXT ================= */
+
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.subtitle {
+  color: $text-muted;
+  font-size: 15px;
+  margin-bottom: 2rem;
+}
+
+/* ================= ACTIVE BANNER ================= */
+
+.active-banner {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  text-align: left;
+  background: rgba($primary, 0.05);
+  border: 1px solid rgba($primary, 0.15);
+  padding: 1.5rem;
+  border-radius: 14px;
+  margin-bottom: 2rem;
+}
+
+.calendar-icon {
+  font-size: 22px;
+}
+
+.banner-text {
+
+  .label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $primary;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  p {
+    font-size: 14px;
+    margin: 0;
+  }
+}
+
+/* ================= BUTTONS ================= */
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 2rem;
+}
+
+.primary-dark-btn {
+  background: $dark;
+  color: $white;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: $transition-fast;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.outline-primary-btn {
+  border: 2px solid $primary;
+  color: $primary;
+  background: transparent;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: $transition-fast;
+
+  &:hover {
+    background: $primary;
+    color: $white;
+  }
+}
+
+/* ================= FEEDBACK ================= */
+
+.feedback-section {
+  border-top: 1px solid $border-color;
+  padding-top: 1.5rem;
+
+  p {
+    font-size: 13px;
+    color: $text-muted;
+    margin-bottom: 6px;
+  }
+
+  a {
+    font-size: 14px;
+    font-weight: 600;
+    color: $text-muted;
+    text-decoration: none;
+    transition: $transition-fast;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+/* ================= FOOTER ================= */
+
+.page-footer {
+  margin-top: 2rem;
+  font-size: 13px;
+  color: $text-muted;
+}

@@ -1,0 +1,26 @@
+@use '../../../../assets/scss/variables' as *;
+.app-footer {
+  height: 60px;
+  max-height: 60px;
+  background: $topbar-bg;
+  border-top: 1px solid $border-light;
+  color: $text-muted;
+  font-size: 13px;
+  transition: $transition-normal;
+
+  img {
+    height: 48px;
+    object-fit: contain;
+  }
+
+  a {
+    text-decoration: none;
+    color: $secondary;
+    transition: $transition-fast;
+    font-size: 13px;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}

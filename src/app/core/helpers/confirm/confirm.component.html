@@ -1,0 +1,32 @@
+<div class="modal-header pb-0 border-0 justify-content-end">
+  <!-- <button (click)="close()" type="button" class="btn-close"></button> -->
+</div>
+
+<div class="modal-body d-flex flex-column align-items-center border-0 pt-0 pb-4 animate__animated animate__fadeIn">
+  <div class="ilustration border">
+    <i class="feather {{ icon ? icon : isDeleting ? 'icon-trash' : 'icon-check' }}"></i>
+  </div>
+
+  <h2 class="text-center">{{ title | translate }}</h2>
+  <p class="text-muted mt-2 text-center">{{ description | translate }}</p>
+
+  <div *ngIf="allowCheck" class="form-check mt-3">
+    <input [(ngModel)]="check" class="form-check-input" type="checkbox" name="gridRadios" id="checkboxconfirm" />
+    <label class="form-check-label" for="checkboxconfirm">
+      {{ 'I confirm I have read the message' | translate }}
+    </label>
+  </div>
+
+  <div class="buttons mt-3">
+    <button (click)="close()" class="btn btn-outline-secondary text-sm py-2 px-4 me-3">
+      {{ 'Cancel' | translate }}
+    </button>
+
+    <button (click)="close(true)" [disabled]="allowCheck && !check" class="btn btn-execute text-sm py-2 px-4" [ngClass]="{
+        'btn-danger bg-red': isDeleting,
+        'btn-primary': !isDeleting
+      }">
+      {{ (isDeleting ? 'Proceed' : 'Execute') | translate }}
+    </button>
+  </div>
+</div>

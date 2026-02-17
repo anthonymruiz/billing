@@ -1,0 +1,25 @@
+
+.ilustration{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: rgb(231, 231, 231);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .feather{
+        font-size: 40px;
+        color: #5a5a5a;
+    }
+}
+h2 {
+    font-weight: 400;
+    font-size: 24px !important;
+}
+
+.buttons {
+    display: flex; 
+}
+.btn-close{
+    font-size: 12px;
+}

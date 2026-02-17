@@ -1,0 +1,236 @@
+@use '../../../assets/scss/variables' as *;
+.success-page {
+  position: relative;
+  min-height: 100vh;
+  background: $content-bg;
+  overflow: hidden;
+  font-family: inherit;
+}
+
+/* ================= BACKGROUND ================= */
+
+.bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient($primary 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
+  opacity: 0.03;
+  z-index: 0;
+}
+
+/* Gradient blobs */
+.blob {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.2;
+  animation: float 6s ease-in-out infinite;
+}
+
+.blob-1 {
+  top: -10%;
+  left: -5%;
+  background: $primary;
+}
+
+.blob-2 {
+  bottom: -10%;
+  right: -5%;
+  background: $success;
+  animation-delay: 3s;
+}
+
+/* Confetti */
+.confetti span {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  opacity: 0.2;
+  animation: float 6s ease-in-out infinite;
+}
+
+.confetti span:nth-child(1) { top: 10%; left: 10%; background: $success; }
+.confetti span:nth-child(2) { top: 20%; right: 15%; background: $primary; }
+.confetti span:nth-child(3) { bottom: 15%; left: 20%; background: $warning; }
+.confetti span:nth-child(4) { bottom: 30%; right: 10%; background: $pink; }
+.confetti span:nth-child(5) { top: 15%; left: 45%; background: $purple; }
+.confetti span:nth-child(6) { bottom: 10%; right: 40%; background: $success; }
+
+/* Float animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* ================= HEADER ================= */
+
+.success-header {
+  padding: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  span {
+    font-weight: 700;
+    font-size: 18px;
+  }
+}
+
+.logo-box {
+  width: 32px;
+  height: 32px;
+  background: $primary;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* ================= MAIN ================= */
+
+.success-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  position: relative;
+  z-index: 2;
+  padding: 1rem;
+}
+
+/* ================= CARD ================= */
+
+.success-card {
+  background: $white;
+  border-radius: 24px;
+  padding: 3.5rem 3rem;
+  max-width: 560px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.08);
+  border: 1px solid $border-color;
+  transition: 0.3s ease;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+}
+
+/* ================= ICON ================= */
+
+.icon-wrapper {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 2rem;
+}
+
+.ping-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba($success, 0.2);
+  animation: ping 2s infinite;
+}
+
+.icon-circle {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: rgba($success, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  color: $success;
+}
+
+@keyframes ping {
+  0% { transform: scale(1); opacity: 0.6; }
+  75% { transform: scale(1.4); opacity: 0; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* ================= TEXT ================= */
+
+h1 {
+  font-size: 34px;
+  font-weight: 800;
+  color: $text-color;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 16px;
+  color: $text-muted;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+/* ================= BUTTON ================= */
+
+.open-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  background: $primary;
+  color: $white;
+  border-radius: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 15px 35px rgba($primary, 0.3);
+  transition: $transition-fast;
+
+  &:hover {
+    background: darken($primary, 5%);
+    transform: translateY(-2px);
+  }
+}
+
+/* ================= HELPER ================= */
+
+.helper {
+  margin-top: 1.5rem;
+  font-size: 13px;
+  color: $text-muted;
+}
+
+/* ================= FOOTER LINKS ================= */
+
+.footer-links {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 13px;
+  color: $text-muted;
+
+  span {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: $border-color;
+  }
+
+  a {
+    color: $text-muted;
+    text-decoration: none;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
