@@ -1,0 +1,47 @@
+<div class="auth-loading-overlay" *ngIf="isLoading || showWelcome || showError">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="loading-card">
+    <div class="logo-wrapper">
+      <img src="assets/images/logo.png" alt="Logo" class="logo" />
+    </div>
+
+    <div *ngIf="!showWelcome && !showError" class="spinner-wrapper">
+      <div class="spinner">
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+      </div>
+    </div>
+
+    <h2 class="loading-title" *ngIf="!showWelcome && !showError">One moment</h2>
+
+    <div *ngIf="!showWelcome && !showError" class="dots-animation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <p class="loading-subtitle" *ngIf="!showWelcome && !showError">{{ message }}</p>
+
+    <!-- Welcome Message -->
+    <div *ngIf="showWelcome" class="welcome-section">
+      <h2 class="welcome-title">Welcome!</h2>
+      <p class="welcome-message" *ngIf="user">
+        {{ user.name }} {{ user.lastName }}
+      </p>
+      <div class="success-icon"><span class="material-icons">check</span></div>
+    </div>
+
+    <!-- Error Message -->
+    <div *ngIf="showError" class="error-section">
+      <h2 class="error-title">Error</h2>
+      <p class="error-message">{{ errorMessage }}</p>
+      <div class="error-icon"><span class="material-icons">close</span></div>
+      <p class="error-hint">Please try again or contact support</p>
+    </div>
+  </div>
+</div>

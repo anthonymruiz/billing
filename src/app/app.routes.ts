@@ -1,6 +1,4 @@
-import { Routes } from '@angular/router';
-import { NotFound } from './common/components/not-found/not-found';  
-import { adminGuard } from './core/guards/test.guard';
+import { Routes } from '@angular/router'; 
 
 export const routes: Routes = [ 
   {
@@ -11,7 +9,7 @@ export const routes: Routes = [
       {
         path: '',
         loadChildren: () =>
-          import('./home/home.routes').then(m => m.HOME_ROUTES)
+          import('./pages/home/home.routes').then(m => m.HOME_ROUTES)
       },
     ]
   },  

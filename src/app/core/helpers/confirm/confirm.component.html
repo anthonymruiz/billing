@@ -4,7 +4,7 @@
 
 <div class="modal-body d-flex flex-column align-items-center border-0 pt-0 pb-4 animate__animated animate__fadeIn">
   <div class="ilustration border">
-    <i class="feather {{ icon ? icon : isDeleting ? 'icon-trash' : 'icon-check' }}"></i>
+    <span class="material-icons">{{ getMaterialIcon() }}</span>
   </div>
 
   <h2 class="text-center">{{ title | translate }}</h2>

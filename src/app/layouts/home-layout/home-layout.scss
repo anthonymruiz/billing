@@ -1,6 +1,11 @@
+@use '../../../assets/scss/variables' as *;
+
 .main {
-    height: calc(100vh - (60px + 70px));
+    background: transparent;
+    height: calc(100vh - 120px);
     overflow-y: scroll;
 }
 
-.page-container {}
+.page-container {
+    height: calc(100vh - 120px);
+}

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Inactive } from './inactive';
+import { Expired } from './expired';
 
-describe('Inactive', () => {
-  let component: Inactive;
-  let fixture: ComponentFixture<Inactive>;
+describe('Expired', () => {
+  let component: Expired;
+  let fixture: ComponentFixture<Expired>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Inactive]
+      imports: [Expired]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Inactive);
+    fixture = TestBed.createComponent(Expired);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

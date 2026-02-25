@@ -26,6 +26,24 @@ export class ConfirmComponent {
 
   ngOnInit(): void {
   } 
+
+  getMaterialIcon(): string {
+    if (this.icon) {
+      const normalized = this.icon.replace('icon-', '').replace(/-/g, '_').toLowerCase();
+      const mapping: Record<string, string> = {
+        trash: 'delete',
+        check: 'check',
+        x: 'close',
+        log_out: 'logout',
+        alert_triangle: 'warning'
+      };
+
+      return mapping[normalized] ?? normalized;
+    }
+
+    return this.isDeleting ? 'delete' : 'check';
+  }
+
   close(isConfirmed: boolean = false){
       this.onConfirm.emit({isConfirmed: isConfirmed})
       this.modal.close();

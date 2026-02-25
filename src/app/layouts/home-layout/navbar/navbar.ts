@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '../../../core/services/auth.service';
+import { IUser } from '../../../core/interfaces/interfaces';
 
 @Component({
   selector: 'app-navbar',
@@ -8,16 +10,20 @@ import { Router, RouterModule } from '@angular/router';
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })
-export class Navbar {
-navItems = [
-    { label: 'Home', route: '/', icon: 'feather icon-home' },
-    { label: 'Billing', route: '/billing', icon: 'feather icon-list' },
-    { label: 'Subscriptions', route: '/subscriptions', icon: 'feather icon-list' },
-    { label: 'Payments', route: '/payments', icon: 'feather icon-bar-chart-2' }
-  ];
-  constructor(private router: Router) {}
-  logout(){
+export class Navbar implements OnInit {
+  currentUser: IUser | null = null;
 
+ 
+  constructor(private router: Router, private authService: AuthService) {}
+  
+  ngOnInit(): void {
+    this.authService.currentUser$.subscribe(user => {
+      this.currentUser = user;
+    });
+  }
+
+  logout(): void {
+    this.router.navigate(['/logout']);
   }
   
  

@@ -1,7 +1,6 @@
 @use '../../../assets/scss/variables' as *;
 
- .cancel-wrapper {
-  min-height: 100vh;
+ .cancel-wrapper { 
   background: $content-bg;
   display: flex;
   justify-content: center;
@@ -19,7 +18,7 @@
   border: 1px solid $border-color;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  padding: 3rem 2.5rem;
+  padding: 3.5rem 2.5rem 3rem 2.5rem;
   position: relative;
 }
 
@@ -27,7 +26,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 6px;
+  height: 12px;
   width: 100%;
   background: $danger;
 }
@@ -116,10 +115,10 @@
 
 .feature-item {
   display: flex;
-  gap: 14px;
-  align-items: center;
-  padding: 0.8rem;
-  border-radius: 10px;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 1rem;
+  border-radius: 12px;
   transition: $transition-fast;
 
   &:hover {
@@ -128,26 +127,28 @@
 
   strong {
     display: block;
-    font-size: 14px;
+    font-size: 15px;
+    margin-bottom: 4px;
   }
 
   span {
-    font-size: 12px;
+    font-size: 13px;
     color: $text-muted;
   }
 }
 
 .feature-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
   background: $light;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 13px;
-  color: $secondary;
+  font-size: 24px;
+  color: $text-muted;
+  flex-shrink: 0;
 }
 
 /* ================= NOTE ================= */

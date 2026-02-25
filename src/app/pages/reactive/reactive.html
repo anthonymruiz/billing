@@ -1,0 +1,56 @@
+<div class="reactivation-wrapper">
+  <div class="reactivation-card">
+    <div class="top-line"></div>
+
+    <div class="card-body">
+      <div class="header">
+        <div class="avatar-wrap">
+          <div class="avatar" [style.background-image]="'url(' + userPhoto + ')'">
+            <span class="avatar-lock"><span class="material-icons">lock</span></span>
+          </div>
+        </div>
+
+        <h1>
+          Hi {{ userName }}, your account is
+          <br />
+          currently <span>inactive</span>.
+        </h1>
+
+        <p>
+          Your subscription was paused on October 14.
+          <br />
+          Reactivate your subscription to get instant access again.
+        </p>
+      </div>
+
+      <div class="status-box">
+        <h3>Services Status</h3>
+        <ul>
+          @for (item of services; track item) {
+            <li>
+              <span class="dot"><span class="material-icons">remove</span></span>
+              <span>{{ item }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <button class="reactivate-btn" type="button" (click)="reactivateAccount()" [disabled]="reactivating">
+        {{ reactivating ? 'Redirecting...' : 'Reactivate my account' }} <span class="material-icons">arrow_forward</span>
+      </button>
+
+      <div class="trust-row">
+        <span><span class="material-icons">lock</span> Secure 256-bit SSL</span>
+        <span>•</span>
+        <span><span class="material-icons">verified_user</span> Cancel anytime</span>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      Having trouble with your payment?
+      <a href="#">Contact support.</a>
+    </div>
+  </div>
+</div>

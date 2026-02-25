@@ -10,7 +10,7 @@
 
       <!-- Icon -->
       <div class="success-icon">
-        ✓
+        <span class="material-icons">check</span>
       </div>
 
       <!-- Title -->
@@ -24,7 +24,7 @@
       <!-- Active Until Banner -->
       <div class="active-banner">
 
-        <div class="calendar-icon">📅</div>
+        <div class="calendar-icon"><span class="material-icons">calendar_month</span></div>
 
         <div class="banner-text">
           <span class="label">Active Until</span>
@@ -40,30 +40,23 @@
       <div class="action-buttons">
 
         <button class="primary-dark-btn">
-          Open App Dashboard →
+          Open App Dashboard <span class="material-icons">arrow_forward</span>
         </button>
 
-        <button class="outline-primary-btn">
-          ↻ Reactivate Now
+        <button class="outline-primary-btn" type="button" (click)="reactivateNow()" [disabled]="reactivating">
+          <span class="material-icons">refresh</span> {{ reactivating ? 'Redirecting...' : 'Reactivate Now' }}
         </button>
 
       </div>
 
-      <!-- Feedback -->
+      <!-- Feedback Section -->
       <div class="feedback-section">
         <p>Help us improve</p>
-        <a href="#">
-          Tell us why you decided to leave →
-        </a>
+        <a href="#">Tell us why you decided to leave <span class="material-icons">arrow_forward</span></a>
       </div>
 
-    </div>
-
   </div>
 
-  <!-- Footer -->
-  <div class="page-footer">
-    © 2024 NexusPremium Inc. All rights reserved.
-  </div>
+ 
 
 </div>

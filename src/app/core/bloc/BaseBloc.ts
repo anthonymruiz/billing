@@ -12,12 +12,12 @@ export interface IBaseBloc<T> {
   orderFields: string[];
   downloadFields: any[];
   loading : BehaviorSubject<boolean>;
-  getById(id: number): Observable<T>;
-  list(reload: boolean, clearData: boolean): Observable<T[]>;
-  save(entity: T): Observable<T>;
-  update(entity: T): Observable<T>;
-  delete(id: number): Observable<void>;
-  emit(state: T[]): void;
+  // getById(id: number): Observable<T>;
+  // list(reload: boolean, clearData: boolean): Observable<T[]>;
+  // save(entity: T): Observable<T>;
+  // update(entity: T): Observable<T>;
+  // delete(id: number): Observable<void>;
+  // emit(state: T[]): void;
 }
 
 export abstract class BaseBloc<T extends IEntityBase> implements IBaseBloc<T> {
@@ -51,115 +51,115 @@ export abstract class BaseBloc<T extends IEntityBase> implements IBaseBloc<T> {
   emit(state: T[]): void {
     this._state$.next(state);
   }
-  getById(id: number): Observable<T> {
-    return this.service.getById(id);
-  }
+//   getById(id: number): Observable<T> {
+//     return this.service.getById(id);
+//   }
   
-  save(entity: T): Observable<T> {
-    return this.service.save(entity).pipe(
-      tap((newEntity) => {
-        this._state$.next([...this.currentValue, newEntity])
-        this.emit(this.currentValue);
-        this.onSave.next(newEntity);
-      })
-    );
-  }
-  update(entity: T): Observable<T> {
-    return this.service.update(entity).pipe(
-      tap((updated: T) => {
-        this.setOnUpdate(updated)
-      })
-    );
-  }
-  private setOnUpdate(updated: T) {
-    this.onUpdate.next(updated)
-    const updatedList: T[] = this.currentValue.map((x: any) => {
-      if (x['id'] == updated['id']) {
-        Object.keys(updated).forEach(key => {
-          x[key] = updated[key] ? updated[key] : x[key]
-        })
-      }
-      return x
-    });
-    this.emit(updatedList);
-  }
-  delete(id: number): Observable<void> {
-    return this.service.delete(id).pipe(
-      tap(() => {
-        this.helper.success("Removed");
-        this.onDelete.next(id);
-        this.emit(this.currentValue.filter((x: any) => (x as any).id !== id));
-      })
-    );
-  }
-  inactivate(entity: T): Observable<void> {
-    return this.service.inactivate(entity.id).pipe(
-      tap(() => {
-        entity.isActive = false;
-        this.helper.success("Inactivated");
-        this.emit(this.currentValue);
-      })
-    );
-  }
-  activate(entity: T): Observable<void> {
-    return this.service.activate(entity.id).pipe(
-      tap(() => {
+//   save(entity: T): Observable<T> {
+//     return this.service.save(entity).pipe(
+//       tap((newEntity) => {
+//         this._state$.next([...this.currentValue, newEntity])
+//         this.emit(this.currentValue);
+//         this.onSave.next(newEntity);
+//       })
+//     );
+//   }
+//   update(entity: T): Observable<T> {
+//     return this.service.update(entity).pipe(
+//       tap((updated: T) => {
+//         this.setOnUpdate(updated)
+//       })
+//     );
+//   }
+//   private setOnUpdate(updated: T) {
+//     this.onUpdate.next(updated)
+//     const updatedList: T[] = this.currentValue.map((x: any) => {
+//       if (x['id'] == updated['id']) {
+//         Object.keys(updated).forEach(key => {
+//           x[key] = updated[key] ? updated[key] : x[key]
+//         })
+//       }
+//       return x
+//     });
+//     this.emit(updatedList);
+//   }
+//   delete(id: number): Observable<void> {
+//     return this.service.delete(id).pipe(
+//       tap(() => {
+//         this.helper.success("Removed");
+//         this.onDelete.next(id);
+//         this.emit(this.currentValue.filter((x: any) => (x as any).id !== id));
+//       })
+//     );
+//   }
+//   inactivate(entity: T): Observable<void> {
+//     return this.service.inactivate(entity.id).pipe(
+//       tap(() => {
+//         entity.isActive = false;
+//         this.helper.success("Inactivated");
+//         this.emit(this.currentValue);
+//       })
+//     );
+//   }
+//   activate(entity: T): Observable<void> {
+//     return this.service.activate(entity.id).pipe(
+//       tap(() => {
         
-        entity.isActive = true;
-        this.setOnUpdate(entity)
-        this.helper.success("Activated!"); 
-      })
-    );
-  }
+//         entity.isActive = true;
+//         this.setOnUpdate(entity)
+//         this.helper.success("Activated!"); 
+//       })
+//     );
+//   }
    
-  list(
-  reload: boolean = false,
-  clearData: boolean = false
-): Observable<T[]> {
+//   list(
+//   reload: boolean = false,
+//   clearData: boolean = false
+// ): Observable<T[]> {
 
-  return this.loading.pipe(
-    filter(loading => !loading),  
-    take(1),
-    switchMap(() => {
+//   return this.loading.pipe(
+//     filter(loading => !loading),  
+//     take(1),
+//     switchMap(() => {
  
-      if (!reload && this.currentValue.length > 0) {
-        return this.state$;
-      }
-      if (clearData) this.clearData();
+//       if (!reload && this.currentValue.length > 0) {
+//         return this.state$;
+//       }
+//       if (clearData) this.clearData();
 
-      this.loading.next(true);
+//       this.loading.next(true);
 
-      return this.service.list(this.dynamicFilter).pipe(
-        tap(data => {
+//       return this.service.list(this.dynamicFilter).pipe(
+//         tap(data => {
 
-          if (!data?.length) {
-            this.reachedPageLimits = true;
-          }
+//           if (!data?.length) {
+//             this.reachedPageLimits = true;
+//           }
 
-          const value = this.currentValue?.length
-            ? [...this.currentValue, ...data]
-            : data;
+//           const value = this.currentValue?.length
+//             ? [...this.currentValue, ...data]
+//             : data;
 
-          this._state$.next(value);
-          this.emit(value);
+//           this._state$.next(value);
+//           this.emit(value);
 
-          this.loading.next(false);
-        })
-      );
-    })
-  );
-}
+//           this.loading.next(false);
+//         })
+//       );
+//     })
+//   );
+// }
 
-  nextPage() {
-    if (this.reachedPageLimits) return
-    this.dynamicFilter.page += 1
-    this.list(true).subscribe()
-  }
+//   nextPage() {
+//     if (this.reachedPageLimits) return
+//     this.dynamicFilter.page += 1
+//     this.list(true).subscribe()
+//   }
  
-  linkPhoto(user: any) { 
-    //todo
-  } 
-  protected clearData(){ 
-    this._state$.next([])
-  }
+//   linkPhoto(user: any) { 
+//     //todo
+//   } 
+//   protected clearData(){ 
+//     this._state$.next([])
+//   }
 }

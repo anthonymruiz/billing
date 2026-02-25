@@ -1,72 +1,73 @@
-<div class="success-page">
+<div class="activation-wrapper">
+  <div class="activation-card">
+    <div class="top-bar"></div>
 
-  <!-- Background Pattern -->
-  <div class="bg-pattern"></div>
-
-  <!-- Gradient Blobs -->
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-
-  <!-- Confetti -->
-  <div class="confetti">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
-  <!-- Header -->
-  <header class="success-header">
-    <div class="logo">
-      <div class="logo-box">P</div>
-      <span>PremiumApp</span>
+    <!-- Avatar Section -->
+    <div class="avatar-section">
+      <div class="avatar-container">
+        <img [src]="userPhoto" alt="User" class="avatar">
+        <div class="lock-badge"><span class="material-icons">lock</span></div>
+      </div>
     </div>
-  </header>
 
-  <!-- Card -->
-  <main class="success-container">
+    <!-- Welcome Message -->
+    <div class="welcome-section">
+      <h1>Welcome, {{ userName }}</h1>
+      <h2 class="highlight">You are one step away!</h2>
+      <p class="description">
+        Unlock the full potential of your workspace. Your premium ecosystem is ready to deploy with advanced tools and exclusive environments.
+      </p>
+    </div>
+ 
 
-    <div class="success-card">
+    <div class="section-divider"></div>
 
-      <!-- Success Icon -->
-      <div class="icon-wrapper">
-        <span class="ping-ring"></span>
-        <div class="icon-circle">
-          ✔
-        </div>
+    <div class="referral-section">
+      <label>Enter your referral code to reveal your discount</label>
+      <div class="input-group">
+        <input type="text" placeholder="Enter Code" class="code-input" [(ngModel)]="code" (input)="coupon = null">
+        <button class="apply-btn" type="button" (click)="apply()" [disabled]="applyingCode">Apply</button>
       </div>
 
-      <!-- Title -->
-      <h1>¡Tu cuenta está activa!</h1>
+      @if (coupon && !coupon.hasExpired) {
+        <div class="discount-result">
+          <span class="material-icons">local_offer</span>
+          <strong>{{ code }} applied!</strong>
+        </div>
+      }
 
-      <!-- Description -->
-      <p class="description">
-        Todo está listo. Ya puedes disfrutar de todas las funciones
-        premium sin límites.
-      </p>
-
-      <!-- Button -->
-      <a href="myapp://home" class="open-btn">
-        Abrir la app →
-      </a>
-
-      <!-- Helper text -->
-      <p class="helper">
-        Si no se abre automáticamente, abre la app manualmente
-        y tu cuenta ya estará activa.
-      </p>
-
+      @if (showInvalidCouponMessage) {
+        <div class="invalid-coupon">
+          Invalid coupon
+        </div>
+      }
     </div>
 
-    <!-- Footer links -->
-    <div class="footer-links">
-      <a href="#">Ayuda</a>
-      <span></span>
-      <a href="#">Privacidad</a>
+    <div class="section-divider"></div>
+
+    <button class="activate-btn" type="button" (click)="activateAccount()" [disabled]="activating || applyingCode">
+      {{ activating ? 'Redirecting...' : 'Activate account' }} <span class="material-icons">arrow_forward</span>
+    </button>
+
+    <div class="footer-info">
+      <span class="security-badge"><span class="material-icons">lock</span> Secure 256-bit SSL</span>
+      <span class="divider">•</span>
+      <span class="cancel-info"><span class="material-icons">verified_user</span> Cancel anytime</span>
     </div>
 
-  </main>
+    <div class="logged-user">
+      <div class="user-left">
+        <div class="mini-avatar" [style.background-image]="'url(' + userPhoto + ')'">
+          <span class="mini-lock"><span class="material-icons">lock</span></span>
+        </div>
+        <div class="user-copy">
+          <strong>Logged in as {{ fullName }}</strong>
+          <small>{{ userEmail }}</small>
+        </div>
+      </div>
+      <!-- <button type="button" class="switch-btn">Switch account</button> -->
+    </div>
+
+  </div>
 
 </div>

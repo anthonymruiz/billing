@@ -1,0 +1,88 @@
+<div class="status-wrapper">
+  <div class="status-layout">
+    <section class="services-panel">
+      <h1>Services Status</h1>
+
+      <div class="services-grid">
+        <article class="service-card" *ngFor="let service of services">
+          <div class="service-icon-wrap">
+            <span class="material-icons service-icon">{{ service.icon }}</span>
+            <span class="material-icons check-dot">check</span>
+          </div>
+          <div class="service-copy">
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.description }}</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <aside class="profile-card">
+      <div class="top-line" [class.warning]="isAutoRenewDisabled"></div>
+
+      <div class="profile-main">
+        <div class="avatar-wrap">
+          <div class="avatar" [style.background-image]="'url(' + userPhoto + ')'">
+            <span class="material-icons avatar-lock">lock</span>
+          </div>
+        </div>
+
+        <h2>{{ fullName }}</h2>
+
+        @if (userEmail) {
+          <div class="meta-row">
+            <span>{{ userEmail }}</span>
+            <button type="button" (click)="copyText(userEmail)"><span class="material-icons">content_copy</span></button>
+          </div>
+        }
+
+        <!-- <div class="meta-row">
+          <span>{{ userHandle }}</span>
+          <button type="button" (click)="copyText(userHandle)"><span class="material-icons">content_copy</span></button>
+        </div> -->
+      </div>
+
+      <div class="subscription-row">
+        <div class="sub-icon" [class.warning]="isAutoRenewDisabled"><span class="material-icons">lock</span></div>
+        <div class="sub-copy" [class.warning]="isAutoRenewDisabled">
+          <span class="sub-label">Subscription</span>
+          <strong>Secure Zone <small>/ monthly</small></strong>
+        </div>
+        <span class="state-pill" [class.active]="isActiveSubscription" [class.warning]="isAutoRenewDisabled">
+          {{ subscriptionLabel }}
+        </span>
+      </div>
+
+      <div class="dates-row">
+        <div>
+          <span>Activated</span>
+          <strong>{{ activatedDateText }}</strong>
+        </div>
+        <div>
+          <span>{{ renewalLabelText }}</span>
+          <strong [class.warning-date]="isAutoRenewDisabled">{{ renewalDateText }}</strong>
+        </div>
+      </div>
+
+      <button type="button" class="btn manage-btn" [class.warning]="isAutoRenewDisabled" (click)="manageSubscription()" [disabled]="managingSubscription">
+        <ng-container *ngIf="!managingSubscription">
+          Manage Subscription <span class="material-icons">arrow_forward</span>
+        </ng-container>
+        <ng-container *ngIf="managingSubscription">
+          Managing subscription...
+          <span class="material-icons loading-icon">autorenew</span>
+        </ng-container>
+      </button>
+    </aside>
+
+    <section class="services-mobile-card bg-white">
+      <h3>SERVICES STATUS</h3>
+      <ul>
+        <li *ngFor="let service of services">
+          <span class="material-icons">check_circle</span>
+          <span>{{ service.title }}</span>
+        </li>
+      </ul>
+    </section>
+  </div>
+</div>
